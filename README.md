@@ -1,6 +1,6 @@
 # Vector Movie Search - What's that movie where...
 
-Try out the app here: [https://triggers-jxjsd.mongodbstitch.com/](https://triggers-jxjsd.mongodbstitch.com/)
+Try out the app here: [https://ireach-dodfh.mongodbstitch.com/](https://ireach-dodfh.mongodbstitch.com/)
 
 ![Screenshot](screenshot.png)
 

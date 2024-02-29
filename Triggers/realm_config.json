@@ -1,7 +1,7 @@
 {
-    "app_id": "triggers-jxjsd",
+    "app_id": "ireach-dodfh",
     "config_version": 20210101,
-    "name": "Triggers",
+    "name": "iReach",
     "location": "IN-MB",
     "provider_region": "aws-ap-south-1",
     "deployment_model": "LOCAL"

@@ -109,7 +109,7 @@ const MovieApp = () => {
       // alert(completion.choices[0].message.content);
 
       const response = await fetch(
-        `https://ap-south-1.aws.data.mongodb-api.com/app/triggers-jxjsd/endpoint/findMovie?m=${selectedOption}&key=${apiKey}&s=${encodeURIComponent(searchQuery)}`
+        `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/standardSearch?m=${selectedOption}&key=${apiKey}&s=${encodeURIComponent(searchQuery)}`
       );
 
       const similarMovies = (await response.json()).results;
