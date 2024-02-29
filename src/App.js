@@ -1,12 +1,6 @@
 import './App.css';
 
-import { AIGatewayClient } from "@mdb-devx/ai-gateway";
- 
 import React, { useState } from "react";
-
-const client = new AIGatewayClient({
-  url: "https://proxy.aix.prod.corp.mongodb.com",
-});
 
 const MovieApp = () => {
   const dummyMovie = {
@@ -96,18 +90,6 @@ const MovieApp = () => {
 
   const fetchMovies = async () => {
     try {
-      // const completion = await client.chat({
-      //   model: "gpt-3.5-turbo-0613",
-      //   messages: [
-      //     { role: "system", content: "You are a helpful assistant." },
-      //     { role: "user", content: "What is the captial of Canada?" },
-      //   ],
-      //   max_token: 10,
-      //   temperature: 0.2,
-      // });
-       
-      // alert(completion.choices[0].message.content);
-
       const response = await fetch(
         `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/standardSearch?m=${selectedOption}&key=${apiKey}&s=${encodeURIComponent(searchQuery)}`
       );
