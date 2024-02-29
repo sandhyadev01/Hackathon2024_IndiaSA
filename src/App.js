@@ -2,9 +2,9 @@ import './App.css';
 
 import React, { useState } from "react";
 
-const MovieApp = () => {
-  const dummyMovie = {
-    title: "No movie to show",
+const IReachApp = () => {
+  const dummyAccount = {
+    title: "No account to show",
     plot: "",
     poster: "https://as1.ftcdn.net/v2/jpg/03/95/42/94/1000_F_395429472_LNyOoV7eRXm76HIIBBHOciyHEtiwS1Ed.jpg",
     imdb: { rating: 0 },
@@ -13,7 +13,7 @@ const MovieApp = () => {
     score: 0
   };
 
-  const [movies, setMovies] = useState([]);
+  const [accounts, setAccounts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [apiKey, setApiKey] = useState("");
   const [selectedOption, setSelectedOption] = useState("Vector");
@@ -83,47 +83,47 @@ const MovieApp = () => {
   }
 
   const handleSubmit = (e) => {
-    setMovies([]);
+    setAccounts([]);
     e.preventDefault();
-    fetchMovies();
+    fetchAccounts();
   };
 
-  const fetchMovies = async () => {
+  const fetchAccounts = async () => {
     try {
       const response = await fetch(
         `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/standardSearch?m=${selectedOption}&key=${apiKey}&s=${encodeURIComponent(searchQuery)}`
       );
 
-      const similarMovies = (await response.json()).results;
+      const similarAccounts = (await response.json()).results;
 
-      if (Array.isArray(similarMovies)) {
-        if (similarMovies.length > 0) {
-          setMovies(similarMovies);
+      if (Array.isArray(similarAccounts)) {
+        if (similarAccounts.length > 0) {
+          setAccounts(similarAccounts);
         }
         else {
-          dummyMovie.plot = 'Try again with a different search query';
-          setMovies([dummyMovie]);
+          dummyAccount.plot = 'Try again with a different search query';
+          setAccounts([dummyAccount]);
         }
       }
       else {
-        dummyMovie.plot = 'This could be due to exceeded rate limit. Please try again after some time.';
-        setMovies([dummyMovie]);
+        dummyAccount.plot = 'This could be due to exceeded rate limit. Please try again after some time.';
+        setAccounts([dummyAccount]);
       }
     } catch (error) {
-      console.error("Error fetching movies:", error);
+      console.error("Error fetching accounts:", error);
     }
   };
 
   return (
     <div>
-      {movies.length === 0 && <img className='bg-image' src={"logo_large.png"} />}
+      {accounts.length === 0 && <img className='bg-image' src={"logo_large.png"} />}
       <div className='powered'>
         <div className='flexDiv'></div>
         <img height={24} src="/mongo.png"></img>
         <a className='powered-text' href="https://www.mongodb.com/products/platform/atlas-vector-search"><em>Powered by MongoDB Atlas Vector Search</em></a>
         <div className='flexDiv'></div>
       </div>
-      <h1 className='subject'>What's that movie where...</h1>
+      <h1 className='subject'>iReach</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -175,17 +175,17 @@ const MovieApp = () => {
           <div className='flexDiv'></div>
         </div>
       }
-      <div className="movies">
-        {movies.map((movie) => (
-          <div key={movie._id} className="movie">
+      <div className="accounts">
+        {accounts.map((account) => (
+          <div key={account._id} className="account">
             <div className='rating'>
-              <h2 className='title'>{movie.title}</h2>
-              <p>{(movie.imdb || { rating: 0 }).rating || "N/A"}</p>
+              <h2 className='title'>{account.title}</h2>
+              <p>{(account.imdb || { rating: 0 }).rating || "N/A"}</p>
             </div>
-            <h4 className='year'>{movie.year || 'N/A'} | {(movie.countries || ["N/A"])[0]} | {(movie.languages || ["N/A"])[0]}</h4>
-            <h5><em>Search score: {movie.score}</em></h5>
-            <p className='plot'>{movie.fullplot || movie.plot}</p>
-            <img src={movie.poster || "https://as1.ftcdn.net/v2/jpg/03/95/42/94/1000_F_395429472_LNyOoV7eRXm76HIIBBHOciyHEtiwS1Ed.jpg"} alt={`${movie.title} Poster`} onError={({ currentTarget }) => {
+            <h4 className='year'>{account.year || 'N/A'} | {(account.countries || ["N/A"])[0]} | {(account.languages || ["N/A"])[0]}</h4>
+            <h5><em>Search score: {account.score}</em></h5>
+            <p className='plot'>{account.fullplot || account.plot}</p>
+            <img src={account.poster || "https://as1.ftcdn.net/v2/jpg/03/95/42/94/1000_F_395429472_LNyOoV7eRXm76HIIBBHOciyHEtiwS1Ed.jpg"} alt={`${account.title} Poster`} onError={({ currentTarget }) => {
               currentTarget.onerror = null; // prevents looping
               currentTarget.src = "https://as1.ftcdn.net/v2/jpg/03/95/42/94/1000_F_395429472_LNyOoV7eRXm76HIIBBHOciyHEtiwS1Ed.jpg";
             }} />
@@ -196,4 +196,4 @@ const MovieApp = () => {
   );
 };
 
-export default MovieApp;
+export default IReachApp;

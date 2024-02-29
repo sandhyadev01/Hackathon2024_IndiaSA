@@ -50,13 +50,13 @@ a {
   white-space: break-spaces;
 }
 
-.movies {
+.accounts {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.movie {
+.account {
   max-width: 300px;
   border: 1px solid #ccc;
   padding: 15px;
