@@ -22,7 +22,8 @@ async function findDocuments(q) {
       {
         "$project": {
           UseCaseDescription: 1,
-          AccountName: 1
+          AccountName: 1,
+          Industry: 1
  //         score: { $meta: 'searchScore' }
         }
       }

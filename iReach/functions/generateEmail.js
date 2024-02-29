@@ -55,10 +55,32 @@ exports = async function({ query, headers, body }, response){
     const featureCursor = featuresColl.aggregate(featurePipe);
     const llmfeatureResult = await featureCursor.toArray();
     
+    const agg3 = [
+    {
+      '$vectorSearch': {
+        'queryVector': qv_features, 
+        'path': 'brief_description_embeddings', 
+        'numCandidates': 60, 
+        'index': 'default', 
+        'limit': 3
+      }
+    }, {
+      '$project': {
+        'brief_description': 1, 
+        '_id': 0,
+        'name':1,
+        'link':1
+      }
+    }
+  ];
+  const proofpointsCursor = proofpointsColl.aggregate(featurePipe);
+  const llmproofpointsResult = await proofpointsCursor.toArray();
+  
+    
     
 
     console.log(qv_features)
-    return { result: llmfeatureResult[0].description };
+    return { result: llmproofpointsResult };
 
   } catch(err) {
     console.log("Error occurred while executing findOne:", err.message);
