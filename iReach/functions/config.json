@@ -1,17 +1,5 @@
 [
     {
-        "name": "createEmbedding",
-        "private": false,
-        "run_as_system": true,
-        "disable_arg_logs": true
-    },
-    {
-        "name": "vector",
-        "private": false,
-        "run_as_system": true,
-        "disable_arg_logs": true
-    },
-    {
         "name": "SemanticSearch",
         "private": false,
         "run_as_system": true,
