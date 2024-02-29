@@ -1,7 +1,7 @@
 exports = async function () {
   // Slow queries
 
-  const dedicated = context.services.get('iReach');
+  const dedicated = context.services.get('mongodb-atlas');
   const serverless = context.services.get('Demo-Serverless');
   const shared = context.services.get('Demo-Shared');
   let pickRandomCluster;

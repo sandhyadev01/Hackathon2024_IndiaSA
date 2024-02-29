@@ -1,5 +1,5 @@
 {
-    "name": "iReach",
+    "name": "mongodb-atlas",
     "type": "mongodb-atlas",
     "config": {
         "clusterName": "iReach",
