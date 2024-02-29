@@ -1,22 +1,31 @@
-# Vector Movie Search - What's that movie where...
+# iReach - Leads? Let's work on better Lead Conversion Rates...
 
-Try out the app here: [https://ireach-dodfh.mongodbstitch.com/](https://ireach-dodfh.mongodbstitch.com/)
+Try out the app here: [TO BE UPDATED](https://ireach-dodfh.mongodbstitch.com/)
+\
+\
+Okay! Ritchie is giving a hint!\
+![leads](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/assets/30409471/55686f93-025d-4c5c-b25f-0e98df95f494)
 
-![Screenshot](screenshot.png)
+## What does iReach do?
+Marketing & Sales team works hard to bring in leads from multiple sources. These could possibly be thousands of leads.\
+Next, few of these are filtered out(say, a 100) and sent to the SDRs.\
+The SDRs then reach out to these leads with common generic responses which may not be relevant to everyone.\
+\
+Do you see what we're getting at? 😄
+
+
+### iReach:
+- _Can help the teams with a curated response - Yep! as per the use-case and stage a deal is in_
+- _Here's the cake! AEs (or anyone using iReach) can search from a large set of resources to dig deeper into an Account_
+- _With that done, the team can share curated responses and relevant proof points with their customers - ensuring a better conversion rate_
+
+
 
 ## Prerequisites
 [Sign up with email and add unique phone number to get free $5 credits on OpenAI](https://openai.com/pricing#:~:text=Start%20for%20free)\
 \
 You will have to enter your own API key while trying out Vector Search.
 
-## What's Vector Search all about?
-Standard Search is based on just stemming, lemmatization and tokenization. This does not produce relevant results as it is based on keywords more or less.\
-Vector Search allows you to search with embeddings. Compare the results yourself.\
-\
-Try out some free-text plots like:
-- _a business tycoon is captured in war zone and then gets out of it by using science_
-- _alien stuck on earth is saved and sent back by a group of kids_
-- _a man who forgets things after some time takes revenge for the killer of his beloved_
 
 ## Available Scripts
 
