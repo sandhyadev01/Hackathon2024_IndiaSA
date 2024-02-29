@@ -21,7 +21,8 @@ async function findDocuments(q) {
       },
       {
         "$project": {
-          AccountName: 1
+          AccountName: 1,
+          "_id": 0
  //         score: { $meta: 'searchScore' }
         }
       }
