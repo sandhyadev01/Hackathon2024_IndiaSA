@@ -32,15 +32,8 @@ const IReachApp = () => {
     setShowOptions(false);
   };
 
-  const handleDropdownToggle = (e) => {
-    e.preventDefault();
-    setShowOptions((prevShow) => !prevShow);
-  };
-
-
-  const handleSubmit = (e) => {
+  const handleSubmit = (mode) => {
     setAccounts([]);
-    e.preventDefault();
     fetchAccounts();
   };
 
@@ -81,6 +74,7 @@ const IReachApp = () => {
       </div>
       <h1 className='subject'>iReach</h1>
       <form onSubmit={handleSubmit}>
+        <div className='flexDiv'/>
         <input
           type="text"
           autoFocus
@@ -88,18 +82,13 @@ const IReachApp = () => {
           onChange={handleChange}
           placeholder="Enter plot here..."
         />
-        <div className="dropdown">
-          <button className="dropdown-button submit-button" disabled={searchQuery.trim() === '' || (selectedOption === "Vector" && apiKey.trim() === '')} type="submit">
-            {selectedOption === "Standard" ? "Standard Search" : "Vector Search"}
-          </button>
-          <button className="dropdown-button arrow" onClick={handleDropdownToggle}>▼</button>
-          {showOptions && (
-            <div className="dropdown-content">
-              <button onClick={() => handleOptionChange("Standard")}>Standard Search</button>
-              <button onClick={() => handleOptionChange("Vector")}>Vector Search</button>
-            </div>
-          )}
-        </div>
+        <button className="submit-button" disabled={searchQuery.trim() === ''} onClick={()=>handleSubmit('standard')}>
+          Standard Search
+        </button>
+        <button className="submit-button" disabled={searchQuery.trim() === ''} onClick={()=>handleSubmit('semantic')}>
+          Semantic Search
+        </button>
+        <div className='flexDiv'/>
       </form>
       <div className="accounts">
         {accounts.map((account) => (

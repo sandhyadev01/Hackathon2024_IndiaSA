@@ -18,26 +18,16 @@ h1 {
 form {
   text-align: center;
   margin-bottom: 20px;
+  display: flex;
 }
 
 input[type="text"] {
   width: 50%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px 0px 0px 5px;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-input[type="password"] {
-  flex: 1;
-  padding: 10px;
-  border: none;
   border-radius: 5px;
-  background-color: #1e2125;
-  color: #eee;
+  margin-right: 10px;
   font-size: 16px;
-  margin: 10px;
 }
 
 .open-ai-link {
@@ -160,60 +150,21 @@ img {
   flex: 1;
 }
 
-.dropdown {
-  display: inline-block;
-  position: relative;
-}
-
-.dropdown-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #00ED64;
-  min-width: 200px;
-  border: none;
-  transform: translateY(0.5px);
-  cursor: pointer;
-  color: #222;
-  font-family: monospace;
-}
-
-.dropdown-content {
-  position: absolute;
-  margin-top: 2px;
-  top: 100%;
-  left: 0;
-  min-width: 160px;
-  z-index: 1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-content button {
-  display: block;
-  padding: 10px 16px;
-  font-size: 18px;
-  min-width: 215.5px;
-  border: none;
-  margin-bottom: 1px;
-  background-color: #00ED64;
-  font-family: monospace;
-  color: #222;
-  cursor: pointer;
-}
-
-.arrow {
-  font-size: 17.5px;
-  padding: 10px 2px;
-  margin-left: 1px;
-  min-width: unset;
-  border-radius: 0px 5px 5px 0px;
-}
-
-.show-dropdown .dropdown-content {
-  display: block;
-}
-
 .submit-button:disabled {
   color: #888;
+}
+
+button {
+  display: block;
+  padding: 5px 10px;
+  font-size: 16px;
+  min-width: 215.5px;
+  border: none;
+  margin: 0px 5px 1px 5px;
+  background-color: #00ED64;
+  font-family: monospace;
+  color: #222;
+  cursor: pointer;
 }
 
 .chart {
