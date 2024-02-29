@@ -1,8 +1,8 @@
 {
-    "name": "Demo-Cluster",
+    "name": "iReach",
     "type": "mongodb-atlas",
     "config": {
-        "clusterName": "Demo-Cluster",
+        "clusterName": "iReach",
         "readPreference": "primary",
         "wireProtocolEnabled": false
     },

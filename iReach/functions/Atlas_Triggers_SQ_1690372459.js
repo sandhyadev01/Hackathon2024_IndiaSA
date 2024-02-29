@@ -1,7 +1,7 @@
 exports = async function () {
   // Slow queries
 
-  const dedicated = context.services.get('Demo-Cluster');
+  const dedicated = context.services.get('iReach');
   const serverless = context.services.get('Demo-Serverless');
   const shared = context.services.get('Demo-Shared');
   let pickRandomCluster;

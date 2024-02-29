@@ -5,7 +5,7 @@ exports = async function () {
     const username = context.values.get("AtlasPublicKey");
     const password = context.values.get("AtlasPrivateKey");
     const projectId = '620531240191d10e7accbff5';
-    const clusterName = 'Demo-Cluster';
+    const clusterName = 'iReach';
 
     const body = { paused: false };
 
