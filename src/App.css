@@ -156,10 +156,6 @@ img {
   display: flex;
 }
 
-.code-box {
-  margin-bottom: 20px;
-}
-
 .flexDiv {
   flex: 1;
 }
@@ -218,23 +214,6 @@ img {
 
 .submit-button:disabled {
   color: #888;
-}
-
-.code-button {
-  font-size: 17.5px;
-  padding: 10px 20px;
-  margin-left: 20px;
-  min-width: unset;
-  border-radius: 5px;
-}
-
-.code {
-  background: #1a1a1a;
-  padding: 10px;
-  max-width: 90%;
-  padding-top: 0px;
-  min-width: 720px;
-  margin-left: 15px;
 }
 
 .chart {

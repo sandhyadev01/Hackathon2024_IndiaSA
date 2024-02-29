@@ -18,12 +18,9 @@ const IReachApp = () => {
   const [apiKey, setApiKey] = useState("");
   const [selectedOption, setSelectedOption] = useState("Vector");
   const [showOptions, setShowOptions] = useState(false);
-  const [showCode, setShowCode] = useState(true);
-  const [code, setCode] = useState("");
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
-    setShowCode(false);
   };
 
   const handleKeyChange = (e) => {
@@ -33,7 +30,6 @@ const IReachApp = () => {
   const handleOptionChange = (option) => {
     setSelectedOption(option);
     setShowOptions(false);
-    setShowCode(false);
   };
 
   const handleDropdownToggle = (e) => {
@@ -41,46 +37,6 @@ const IReachApp = () => {
     setShowOptions((prevShow) => !prevShow);
   };
 
-  const updateCode = (e) => {
-    e.preventDefault();
-    if (showCode) {
-      setShowCode(false);
-      return;
-    }
-
-    let currCode;
-
-    if (selectedOption === 'Vector') {
-      currCode = `
-  // getEmbeddings function can leverage OpenAI API or something similar
-
-  {
-    "$search": {
-      "index": "default",
-      "knnBeta": {
-        "vector": getEmbeddings("${searchQuery}"),
-        "path": "plot_embedding",
-        "k": 5
-      }
-    }
-  }`;
-    }
-    else {
-      currCode = `
-  {
-    "$search": {
-      "index": "default",
-      "text": {
-        "query": "${searchQuery}",
-        "path": "plot"
-      }
-    }
-  }`;
-    }
-
-    setCode(currCode);
-    setShowCode(true);
-  }
 
   const handleSubmit = (e) => {
     setAccounts([]);
@@ -137,7 +93,6 @@ const IReachApp = () => {
             {selectedOption === "Standard" ? "Standard Search" : "Vector Search"}
           </button>
           <button className="dropdown-button arrow" onClick={handleDropdownToggle}>▼</button>
-          <button className="dropdown-button code-button" onClick={updateCode}>{showCode ? `{-}` : `{+}`}</button>
           {showOptions && (
             <div className="dropdown-content">
               <button onClick={() => handleOptionChange("Standard")}>Standard Search</button>
@@ -146,35 +101,6 @@ const IReachApp = () => {
           )}
         </div>
       </form>
-      {
-        showCode &&
-        <div className='container code-box'>
-          <div className='flexDiv'></div>
-          {
-            (new URLSearchParams(window.location.search)).get('dev') &&
-            <iframe className='chart' width="480" height="360" src="https://charts.mongodb.com/charts-ajayraghav-qlztg/embed/charts?id=64bbc28b-48a7-459b-8129-70f16c33e921&maxDataAge=300&theme=dark&autoRefresh=true"></iframe>
-          }
-          <div className='code'>
-            <div className='container'>
-              <input
-                type="password"
-                value={apiKey}
-                onChange={handleKeyChange}
-                placeholder="Enter your own OpenAI API Key"
-              />
-            </div>
-            <div>
-              <div className='open-ai-link'>
-                <a target='_blank' href="https://openai.com/pricing#:~:text=Start%20for%20free">Sign up with email and add unique phone number to get free $5 credits on OpenAI</a>
-              </div>
-            </div>
-            <pre>
-              <code>{code}</code>
-            </pre>
-          </div>
-          <div className='flexDiv'></div>
-        </div>
-      }
       <div className="accounts">
         {accounts.map((account) => (
           <div key={account._id} className="account">
