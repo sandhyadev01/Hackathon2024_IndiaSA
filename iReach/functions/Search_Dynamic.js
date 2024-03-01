@@ -26,7 +26,9 @@ async function findDocuments(q) {
           AccountName: 1,
           Industry: 1,
           AnnualRunRate: 1,
-          AccountId: 1
+          AccountId: 1,
+          ContactName: 1,
+          role: 1
           
  //         score: { $meta: 'searchScore' }
         }
