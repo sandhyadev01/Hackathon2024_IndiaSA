@@ -35,14 +35,14 @@ A lot of events, mass mails, cold calls ... and then some more!\
 A lot of work goes here and a small % gets converted to decent amount of leads which are then sent to SDRs.\
 The work doesn't end here.
 
-Issue with this:
+**Issue with this**:
 - Generic Content & Lack of Personalisation
 - Manual Work & Time Constraint
 - Limited Data Insights
 - Poor Data Segmentation and hence, Limited Audience Targeting
 - Ineffective Communication
 
-What we're focusing on: (MDB Differentiators)
+What we're focusing on: (**MDB Differentiators**)
 - Developer Productivity (DDP)
 - Breezy Search Experience & Personalisation (Atlas Search & Atlas Vector Search...Duh!)
 - Scalability
@@ -55,10 +55,10 @@ TLDR: Better Lead Conversions!
 
 Introducing mReach, the avant-garde marketing automation platform that revolutionizes how businesses engage with prospects. By leveraging the latest in AI-driven personalization, including cutting-edge embedding models and vector search technologies, mReach delivers unparalleled context and relevance in every email. This sophisticated approach ensures that each message is not only personalized but also deeply resonant with the recipient's current needs and interests, significantly boosting engagement and conversion rates. mReach goes further by incorporating relevant proof points into communications, enhancing client interactions by vividly demonstrating the value of your product. With seamless integration, comprehensive analytics for ongoing refinement, and a commitment to genuine connection, mReach transforms cold outreach into a dynamic, personalized conversation.
 
-_Welcome to mReach, where every email is an opportunity to connect, engage, and grow with purpose._
+_**Welcome to mReach, where every email is an opportunity to connect, engage, and grow with purpose.**_
 
 ## mReach Tech Stack: 
-- OpenAI (text-embedding-ada-002, gpt-3.5-turbo-16k)
+- OpenAI (text-embedding-ada-002, gpt-3.5-turbo)
 - Atlas Search
 - Atlas Vector Search
 - Time-Series Collections
