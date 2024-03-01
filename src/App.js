@@ -31,7 +31,7 @@ const IReachApp = () => {
   const [accounts, setAccounts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showLoader, setShowLoader] = useState(false);
-  const [promptText, setPromptText] = useState("I am a Sales Executive, I have been chasing this account. Please generate an email for educating the customer on relevant features for their use case.");
+  const [promptText, setPromptText] = useState("I am a <your role>, Please generate a relevant email.");
   const [emailText, setEmailText] = useState("");
   const [selectedAccount, setSelectedAccount] = useState("");
   const [suggestions, setSuggestions] = useState([]);
