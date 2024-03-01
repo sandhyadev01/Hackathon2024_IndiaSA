@@ -19,7 +19,9 @@ Team Number: 8
 - Vaibhav Mehra
 - Sandhya Dev
 - Aditya Kishore
+  
 Leaders:
+
 - Rajat Bhasin
 - Vinay Agarwal
 - Himanshumali
