@@ -117,7 +117,7 @@ const IReachApp = () => {
       const emailText = (await response.json()).results;
 
       if (emailText) {
-          return ({ results: emailText, success: true });
+        return ({ results: emailText, success: true });
       }
       else {
         emailText = 'Try again with a different search query';
@@ -152,7 +152,7 @@ const IReachApp = () => {
       });
   };
 
-  const  getEmailText = async(promptText) => {
+  const getEmailText = async (promptText) => {
     const { result, success } = await fetchGeneratedEmail(promptText);
     if (success) {
       setEmailText(result);
@@ -161,26 +161,26 @@ const IReachApp = () => {
       const text = "Try again with a different search query";
       setEmailText(text);
     }
-    
-   
+
+
   }
 
   return (
     <div>
-    <header  className='header'>
-         <div style={{ marginLeft: '10px' }}>
-        <FiHome size="24px" color='black'/>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', color: 'black' }}>
-      <FiUser size="30px" color='black' marginRight= '15px'/>
-       <div>
-        <p style={{ marginRight: '20px', fontWeight: 'bold', color:'black', marginLeft:'10px' }}>{user.username}</p>
-        <p style={{ margin: '0', fontSize: '14px', color:'black' }}>{user.email}</p>
-      </div>
-      </div>
-    </header>
+      <header className='header'>
+        <div style={{ marginLeft: '10px' }}>
+          <FiHome size="24px" color='black' />
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', color: 'black' }}>
+          <FiUser size="30px" color='black' marginRight='15px' />
+          <div>
+            <p style={{ marginRight: '20px', fontWeight: 'bold', color: 'black', marginLeft: '10px' }}>{user.username}</p>
+            <p style={{ margin: '0', fontSize: '14px', color: 'black' }}>{user.email}</p>
+          </div>
+        </div>
+      </header>
 
-    {accounts.length === 0 && <img className='bg-image' src={"logo_large.png"} />}
+      {accounts.length === 0 && <img className='bg-image' src={"logo_large.png"} />}
       <h1 className='subject'>iReach</h1>
       <form>
         <div className='flexDiv' />
@@ -219,38 +219,38 @@ const IReachApp = () => {
           </div>
         ))}
       </div>
-      {isPromtTextBarVisible && ( <div className='generate-email'>
+      {isPromtTextBarVisible && (<div className='generate-email'>
         <div className='text-area-email'>
-        <textarea className='prompt-text-area'
-          type="text"
-          autoFocus
-          value={promptText}
-          onChange={handlePromptChange}
-          placeholder="Enter email generation prompt here..."
-        />
+          <textarea className='prompt-text-area'
+            type="text"
+            autoFocus
+            value={promptText}
+            onChange={handlePromptChange}
+            placeholder="Enter email generation prompt here..."
+          />
         </div>
-        <button className='generate-email-button' disabled={promptText.trim() === ''} onClick={(e)=>generateEmail(e)}>
-          Generate Email <RiMailLine/>
+        <button className='generate-email-button' disabled={promptText.trim() === ''} onClick={(e) => generateEmail(e)}>
+          Generate Email <RiMailLine />
         </button>
-      
-      <div className='email-text'>
-      {emailText}
-     
-      <button className='copy-text'
-        onClick={copyText}   
-      >
-       Copy Email <FiCopy style={{color:'white', size: '1.5em'}} /> 
-      </button>
+
+        <div className='email-text'>
+          {emailText}
+
+          <button className='copy-text'
+            onClick={copyText}
+          >
+            Copy Email <FiCopy style={{ color: 'white', size: '1.5em' }} />
+          </button>
+        </div>
       </div>
-      </div>
-    )}
-    <div className='powered'>
+      )}
+      <div className='powered'>
         <div className='flexDiv'></div>
         <img height={24} src="/mongo.png"></img>
         <a className='powered-text' href="https://www.mongodb.com/products/platform/atlas-vector-search"><em>Powered by MongoDB Atlas Vector Search</em></a>
         <div className='flexDiv'></div>
       </div>
-      </div>
+    </div>
   );
 };
 
