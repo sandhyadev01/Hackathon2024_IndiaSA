@@ -8,13 +8,12 @@ async function findDocuments(q) {
         {
             $search: {
               index: "autocomplete_prospects",
-              text: {
+              autocomplete:{
                 query: q,
-                path: {
-                  wildcard: "*"
+                path:"AccountName",
+                 'fuzzy': { "maxEdits": 1, "prefixLength": 2 }
                 }
               }
-            }
           },
       {
         "$limit": 5
@@ -27,7 +26,6 @@ async function findDocuments(q) {
         }
       }
     ]).toArray();
-
     return documents;
   }
   catch (e) {
