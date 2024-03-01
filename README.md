@@ -58,8 +58,7 @@ _Welcome to iReach, where every email is an opportunity to connect, engage, and 
 - MERN
 
 ## Architecture:
-[Content to be added]
-
+![HighLevelArchitecture](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/388be2249d3f65ddc3d6374315304dd68d075207/ArchitectureDiag.png)
 
 
 ## What's the cake? 
