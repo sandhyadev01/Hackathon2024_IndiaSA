@@ -297,13 +297,13 @@ li {
 }
 
 .userEmail {
-  margin: 0px 0px 10px 10px;
+  margin: 0px 10px 10px 10px;
   font-size: 14px;
   color: black
 }
 
 .userName {
-  margin: 10px 20px 0px 10px;
+  margin: 10px 10px 0px 10px;
   font-weight: bold;
   color: black
 }

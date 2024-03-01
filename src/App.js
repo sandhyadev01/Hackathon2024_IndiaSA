@@ -253,12 +253,12 @@ const IReachApp = () => {
             iReach
           </div>
           <div className='flexDiv' />
-          <div style={{ marginRight: 20, display: 'flex', color: 'black' }}>
-            <FiUser size="30px" color='black' className='userIcon' />
+          <div style={{ marginRight: 20, display: 'flex', color: 'black', textAlign: 'right' }}>
             <div>
               <p className='userName'>{user.username}</p>
               <p className='userEmail'>{user.email}</p>
             </div>
+            <FiUser size="30px" color='black' className='userIcon' />
           </div>
         </header>
 
