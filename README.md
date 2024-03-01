@@ -18,10 +18,8 @@ Team Number: 8
 - Siddharth Gupta
 - Vaibhav Mehra
 - Sandhya Dev
-- Aditya Kishore
-  
+- Aditya Kishore <br/> <br/>
 Leaders:
-
 - Rajat Bhasin
 - Vinay Agarwal
 - Himanshumali
@@ -35,14 +33,14 @@ A lot of events, mass mails, cold calls ... and then some more!\
 A lot of work goes here and a small % gets converted to decent amount of leads which are then sent to SDRs.\
 The work doesn't end here.
 
-**Issue with this**:
+Issue with this:
 - Generic Content & Lack of Personalisation
 - Manual Work & Time Constraint
 - Limited Data Insights
 - Poor Data Segmentation and hence, Limited Audience Targeting
 - Ineffective Communication
 
-What we're focusing on: (**MDB Differentiators**)
+What we're focusing on: (MDB Differentiators)
 - Developer Productivity (DDP)
 - Breezy Search Experience & Personalisation (Atlas Search & Atlas Vector Search...Duh!)
 - Scalability
@@ -55,10 +53,10 @@ TLDR: Better Lead Conversions!
 
 Introducing mReach, the avant-garde marketing automation platform that revolutionizes how businesses engage with prospects. By leveraging the latest in AI-driven personalization, including cutting-edge embedding models and vector search technologies, mReach delivers unparalleled context and relevance in every email. This sophisticated approach ensures that each message is not only personalized but also deeply resonant with the recipient's current needs and interests, significantly boosting engagement and conversion rates. mReach goes further by incorporating relevant proof points into communications, enhancing client interactions by vividly demonstrating the value of your product. With seamless integration, comprehensive analytics for ongoing refinement, and a commitment to genuine connection, mReach transforms cold outreach into a dynamic, personalized conversation.
 
-_**Welcome to mReach, where every email is an opportunity to connect, engage, and grow with purpose.**_
+_Welcome to mReach, where every email is an opportunity to connect, engage, and grow with purpose._
 
 ## mReach Tech Stack: 
-- OpenAI (text-embedding-ada-002, gpt-3.5-turbo)
+- OpenAI (text-embedding-ada-002, gpt-3.5-turbo-16k)
 - Atlas Search
 - Atlas Vector Search
 - Time-Series Collections
@@ -69,31 +67,35 @@ _**Welcome to mReach, where every email is an opportunity to connect, engage, an
 ## Architecture:
 
 ### High Level Design/Arch
-![HighLevelArchitecture](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/388be2249d3f65ddc3d6374315304dd68d075207/ArchitectureDiag.png)
+![HighLevelArchitecture](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/7eed5d420689396637a4b17ee2eda4853c52fa6e/HLDArch.png)
 
 
 ### Low Level Design/Arch
-![LowLevelArchitecture]()
+![LowLevelArchitecture](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/7eed5d420689396637a4b17ee2eda4853c52fa6e/LowLevelArch.png)
 
 
 ## Roles & Responsibilities:
-**Frontend Development**
-_Ajay Raghav_, _Rashi Yadav_,
+**Frontend Development:**
+_Ajay Raghav_, _Rashi Yadav_
   
-**Backend Development**
+**Backend Development:**
 _Vinod Krishnan_, _Siddharth Gupta_, _Ajay Raghav_
 
-**Data Generation**
-_Vaibhav Mehra_, _Sandhya Dev_, _Aditya Kishore_
+**Data Generation:**
+_Vaibhav Mehra_, _Sandhya Dev_, _Aditya Kishore_, _Nitin Mukheja_
 
-**ReadMe.md**
+**ReadMe.md:**
 _Nitin Mukheja_, _Rashi Yadav_, _Sandhya Dev_
 
-**Architecture**
+**Architecture:**
 _Siddharth Gupta_, _Vinod Krishnan_, _Vaibhav Mehra_
 
-**Charts & Visualisations & Timeseries**
+**Charts & Visualisations:**
 _Aditya Kishore_, _Nitin Mukheja_
+
+
+## Demo Script!
+![DemoScript](xxx)
 
 
 ## What's the cake? 
