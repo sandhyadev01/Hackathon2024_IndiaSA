@@ -4,6 +4,28 @@ exports = async function({ query, headers, body }, response){
   // To see plenty more examples of what you can do with functions see: 
   // https://www.mongodb.com/docs/atlas/app-services/functions/
   
+    const openai_key = context.values.get("OpenAI-Key");
+    const url = 'https://api.openai.com/v1/chat/completions';
+
+    let newresponse = await context.http.post({
+      url: url,
+      headers: {
+        'Authorization': [`Bearer ${openai_key}`],
+        'Content-Type': ['application/json']
+      },
+      body: JSON.stringify({
+        "messages": [
+      {
+        "role": "user",
+        "content": "What is capital of india"
+      }
+    ],
+        model: "gpt-3.5-turbo"
+      })
+    });
+    
+    
+  
 
   // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
   var serviceName = "mongodb-atlas";
@@ -32,12 +54,12 @@ exports = async function({ query, headers, body }, response){
       { "AccountId": accountId },{"UseCaseDescription_embeddings":1,"ContactName":1,"_id":0}
     );
     
-    const qv_features = prospectsResult.UseCaseDescription_embeddings;
+    const qv_prospects = prospectsResult.UseCaseDescription_embeddings;
     
     const featurePipe = [
     {
       '$vectorSearch': {
-        'queryVector': qv_features, 
+        'queryVector': qv_prospects, 
         'path': 'description_embeddings', 
         'numCandidates': 15, 
         'index': 'default', 
@@ -46,7 +68,8 @@ exports = async function({ query, headers, body }, response){
     }, {
       '$project': {
         'description': 1, 
-        '_id': 0
+        '_id': 0,
+        "score": { "$meta": "vectorSearchScore" }
       }
     }
   ];
@@ -55,10 +78,10 @@ exports = async function({ query, headers, body }, response){
     const featureCursor = featuresColl.aggregate(featurePipe);
     const llmfeatureResult = await featureCursor.toArray();
     
-    const agg3 = [
+    const proofpointPipe = [
     {
       '$vectorSearch': {
-        'queryVector': qv_features, 
+        'queryVector': qv_prospects, 
         'path': 'brief_description_embeddings', 
         'numCandidates': 60, 
         'index': 'default', 
@@ -69,18 +92,19 @@ exports = async function({ query, headers, body }, response){
         'brief_description': 1, 
         '_id': 0,
         'name':1,
-        'link':1
+        'link':1,
+        "score": { "$meta": "vectorSearchScore" }
       }
     }
   ];
-  const proofpointsCursor = proofpointsColl.aggregate(featurePipe);
+  const proofpointsCursor = proofpointsColl.aggregate(proofpointPipe);
   const llmproofpointsResult = await proofpointsCursor.toArray();
-  
-    
     
 
-    console.log(qv_features)
-    return { result: llmproofpointsResult };
+    //console.log(qv_features)
+    //return { ppresult: llmproofpointsResult, fresult:llmfeatureResult};
+    //return {"pleasework" : newresponse.body.Data.choices[0].message.content }
+    return {"asa":EJSON.parse(newresponse.body.text())}
 
   } catch(err) {
     console.log("Error occurred while executing findOne:", err.message);

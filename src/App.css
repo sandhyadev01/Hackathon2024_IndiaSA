@@ -26,7 +26,7 @@ input[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-right: 10px;
+  margin-right: 5px;
   font-size: 16px;
 }
 
@@ -69,45 +69,29 @@ img {
   max-width: 100%;
 }
 
-.rating {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.rating p {
-  background-color: #e2ad00;
-  color: #222;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-align: center;
-  max-height: 20px;
-  margin: 0px 0px 0px 10px;
-}
-
-.plot {
+.usecaseDesc {
   height: 150px;
   color: #ccc;
   margin-bottom: 40px;
   overflow-y: hidden;
 }
 
-.plot:hover {
+.usecaseDesc:hover {
   overflow-y: auto;
 }
 
-.title {
+.accountName {
   white-space: nowrap;
   flex: 1;
   overflow-x: hidden;
+  margin-bottom: 20px;
 }
 
-.title:hover {
+.accountName:hover {
   overflow-x: auto;
-  margin-bottom: -20px;
 }
 
-.year {
+.industry {
   color: #ccc;
 }
 
