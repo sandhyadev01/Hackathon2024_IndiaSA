@@ -96,7 +96,7 @@ _Aditya Kishore_, _Nitin Mukheja_
 
 
 ## Demo Script!
-![DemoScript](xxx)
+![DemoScript](https://docs.google.com/document/d/10eF64G5yOxgDmLgkXDCB7XLO2mu3UujR9qV5fZvrb4I/edit)
 
 
 ## What's the cake? 
