@@ -8,8 +8,8 @@ Okay! Ritchie is giving a hint!\
 
 
 ## Team Details
-Team Name: India SA\
-Members: 8
+Team Name: India SA Team\
+Members: 10
 - Ajay Raghav
 - Nitin Mukheja
 - Rajat Bhasin
