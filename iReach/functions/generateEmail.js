@@ -31,13 +31,16 @@ exports = async function ({ query, headers, body }, response) {
 
     // Execute a FindOne in MongoDB 
     prospectsResult = await prospectsColl.findOne(
-      { "AccountId": accountId }, { "UseCaseDescription_embeddings": 1, "ContactName": 1, "_id": 0, "UseCaseDescription": 1 }
+      { "AccountId": accountId }, { "UseCaseDescription_embeddings": 1, "ContactName": 1, "_id": 0, "UseCaseDescription": 1, "AccountName":1,"role":1 }
     );
 
     const qv_prospects = prospectsResult.UseCaseDescription_embeddings;
     // Added 1 March
     const promt_prospects_name = prospectsResult.ContactName;
     const promt_prospects_useCase = prospectsResult.UseCaseDescription;
+    const prompt_prospects_Company = prospectsResult.AccountName;
+    const prompt_prospects_role = prospectsResult.role;
+   //const prompt_prospects_role = "Developer"
     //
     const featurePipe = [
       {
@@ -62,7 +65,7 @@ exports = async function ({ query, headers, body }, response) {
     const llmfeatureResult = await featureCursor.toArray();
     // Added 1 March
 
-    const promt_feature_description = llmfeatureResult.description
+    const promt_feature_description = llmfeatureResult[0].description
 
     //
     const proofpointPipe = [
@@ -87,8 +90,8 @@ exports = async function ({ query, headers, body }, response) {
     const proofpointsCursor = proofpointsColl.aggregate(proofpointPipe);
     const llmproofpointsResult = await proofpointsCursor.toArray();
     // Added 1 March
-    const promt_proofpoint_name = llmproofpointsResult.name;
-    const promt_proofpoint_link = llmproofpointsResult.link;
+    const promt_proofpoint_name = llmproofpointsResult[0].name;
+    const promt_proofpoint_link = llmproofpointsResult[0].link;
 
     let newresponse = await context.http.post({
       url: url,
@@ -101,7 +104,7 @@ exports = async function ({ query, headers, body }, response) {
           {
             "role": "user",
             //     "content": "What is capital of india"
-            "content": `I am a Marketing person at a Data Platform company, We have a prospect who is looking for various data platform features and proofpoints. Write an email for ${promt_prospects_name} who has a use case on ${promt_prospects_useCase} suggesting him ${promt_feature_description} and ${promt_proofpoint_name} with their relevant ${promt_proofpoint_link}`
+            "content": `${prompt}. Write an email for ${promt_prospects_name} who works at ${prompt_prospects_Company} as a ${prompt_prospects_role}. The use case is ${promt_prospects_useCase}. Suggest him ${promt_feature_description}. Also attach ${promt_proofpoint_name} with their relevant ${promt_proofpoint_link}`
           }
         ],
         model: "gpt-3.5-turbo"
