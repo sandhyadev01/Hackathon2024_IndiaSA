@@ -1,4 +1,4 @@
-# iReach - Leads? Let's work on better Lead Conversion Rates...
+# iReach - Leads? In it to win it!
 
 Try out the app here: [TO BE UPDATED](https://ireach-dodfh.mongodbstitch.com/)
 \
@@ -19,26 +19,33 @@ Do you see what we're getting at? 😄
 - _Here's the cake! AEs (or anyone using iReach) can search from a large set of resources to dig deeper into an Account_
 - _With that done, the team can share curated responses and relevant proof points with their customers - ensuring a better conversion rate_
 
+## Architecture:
 
 
-## Prerequisites
+
+## Dependencies
 [Sign up with email and add unique phone number to get free $5 credits on OpenAI](https://openai.com/pricing#:~:text=Start%20for%20free)\
 \
 You will have to enter your own API key while trying out Vector Search.
 
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+In the project directory, you can execute the following:
 
 ### `npm start`
+### `xxx`
+### `xxx`
 
 Runs the app in development mode.\
 It will automatically open [http://localhost:3000](http://localhost:3000) in your browser.
 
 The page will reload when you make changes.
 
-## App Service Components
+## What's the magic? 
+
+### Results
+You can see customised e-mail templates based on the industry. Also, you can mention your Name(Ex:John Doe) and Designation(Ex: Solutions Architect) for mail generation and a proper mail will be generated along with a MongoDB Customer Story (a.k.a Proof Points 😃)
 - [Triggers function](/Triggers/functions/Atlas_Triggers_openAI_scheduled_1689945708.js)
 - [Vector Search function](/Triggers/functions/vector.js)
 
