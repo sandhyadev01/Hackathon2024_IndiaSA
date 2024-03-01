@@ -250,7 +250,7 @@ const IReachApp = () => {
 
         <header className='header'>
           <div style={{ marginLeft: 20, color: 'black', fontSize: 22, fontWeight: 'bold' }}>
-            iReach
+            mReach
           </div>
           <div className='flexDiv' />
           <div style={{ marginRight: 20, display: 'flex', color: 'black', textAlign: 'right' }}>
