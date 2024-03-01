@@ -239,7 +239,7 @@ ul {
   margin: 1px 5px 0px 0px;
   background-color: rgb(251, 211, 217);
   color: black;
-  list-style-type:none;
+  list-style-type: none;
   padding: 0px;
   position: absolute;
   width: 50vw;
@@ -250,4 +250,5 @@ li {
   font-size: 18px;
   padding: 5px 13px;
   border-bottom: #888 1px solid;
+  cursor: pointer;
 }

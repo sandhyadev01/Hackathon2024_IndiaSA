@@ -35,11 +35,23 @@ const IReachApp = () => {
   const [promptText, setPromptText] = useState("");
   const [emailText, setEmailText] = useState("");
   const [selectedAccount, setSelectedAccount] = useState("");
-  const [suggestions, setSuggestions] = useState([dummyAccount, dummyAccount]);
+  const [suggestions, setSuggestions] = useState([]);
+  const [autocompleteTimeout, setAutocompleteTimeout] = useState(0);
 
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
+    clearTimeout(autocompleteTimeout);
+
+    if (e.target.value !== "") {
+      setAutocompleteTimeout(setTimeout(async () => {
+        const { results, success } = await searchAccounts('searchAutocomplete', e.target.value);
+
+        if (success) {
+          setSuggestions(results);
+        }
+      }, 100));
+    }
   };
 
   const handlePromptChange = (e) => {
@@ -58,9 +70,11 @@ const IReachApp = () => {
   const handleSubmit = (e, mode) => {
     e.preventDefault();
     setAccounts([]);
+    setSuggestions([]);
 
     fetchAccounts(mode);
   };
+
 
   const generateEmail = (e) => {
     e.preventDefault();
@@ -68,32 +82,43 @@ const IReachApp = () => {
     getEmailText();
   };
 
-  const fetchAccounts = async (mode) => {
+  async function searchAccounts(mode, searchQuery) {
+
     try {
       const response = await fetch(
-        `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/${mode == 'semantic' ? 'semanticSearch' : 'dynamicSearch'}?s=${encodeURIComponent(searchQuery)}`
+        `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/${mode}?s=${encodeURIComponent(searchQuery)}`
       );
 
       const similarAccounts = (await response.json()).results;
 
       if (Array.isArray(similarAccounts)) {
         if (similarAccounts.length > 0) {
-          setAccounts(similarAccounts);
-          setSelectedAccount(similarAccounts[0].AccountId);
+          return ({ results: similarAccounts, success: true });
         }
         else {
           dummyAccount.usecaseDesc = 'Try again with a different search query';
-          setAccounts([dummyAccount]);
-          setSelectedAccount(dummyAccount.AccountId);
+          return ({ success: false });
         }
       }
       else {
         dummyAccount.usecaseDesc = 'This could be due to exceeded rate limit. Please try again after some time.';
-        setAccounts([dummyAccount]);
-        setSelectedAccount(dummyAccount.AccountId);
+        return ({ success: false });
       }
     } catch (error) {
       console.error("Error fetching accounts:", error);
+    }
+  }
+
+  const fetchAccounts = async (mode) => {
+    const { results, success } = await searchAccounts(mode, searchQuery);
+
+    if (success) {
+      setAccounts(results);
+      setSelectedAccount(results[0].AccountId);
+    }
+    else {
+      setAccounts([dummyAccount]);
+      setSelectedAccount(dummyAccount.AccountId);
     }
   };
 
@@ -143,16 +168,16 @@ const IReachApp = () => {
           {suggestions.length > 0 && searchQuery.length > 0 &&
             <ul>
               {suggestions.map(suggestion => (
-                <li key={suggestion.AccountId} onClick={() => { setSelectedAccount(suggestion.AccountId); setSearchQuery(suggestion.AccountName) }}>
+                <li key={suggestion.AccountId} onClick={() => { setSelectedAccount(suggestion.AccountId); setAccounts([suggestion]); setSearchQuery(suggestion.AccountName); setSuggestions([]) }}>
                   {suggestion.AccountName}
                 </li>
               ))}
             </ul>}
         </div>
-        <button className="submit-button" disabled={searchQuery.trim() === ''} onClick={(e) => handleSubmit(e, 'standard')}>
+        <button className="submit-button" disabled={searchQuery.trim() === ''} onClick={(e) => handleSubmit(e, 'dynamicSearch')}>
           Standard Search
         </button>
-        <button className="submit-button" disabled={searchQuery.trim() === ''} onClick={(e) => handleSubmit(e, 'semantic')}>
+        <button className="submit-button" disabled={searchQuery.trim() === ''} onClick={(e) => handleSubmit(e, 'semanticSearch')}>
           Semantic Search
         </button>
         <div className='flexDiv' />
