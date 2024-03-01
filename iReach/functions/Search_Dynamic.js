@@ -12,7 +12,8 @@ async function findDocuments(q) {
                 query: q,
                 path: {
                   wildcard: "*"
-                }
+                },
+                fuzzy: {}
               }
             }
           },

@@ -22,7 +22,7 @@ form {
 }
 
 input[type="text"] {
-  width: 50%;
+  width: 50vw;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -66,6 +66,14 @@ a {
   border-color: #888;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account:hover {
+  background-color: #444;
+}
+
+.account.selected {
+  background-color: #005b26;
 }
 
 h2 {
@@ -158,6 +166,7 @@ button {
   padding: 5px 10px;
   font-size: 16px;
   min-width: 215.5px;
+  max-height: 41px;
   border: none;
   margin: 0px 5px 1px 5px;
   background-color: #00ED64;
@@ -224,4 +233,21 @@ input[type="password"]:focus {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+}
+
+ul {
+  margin: 1px 5px 0px 0px;
+  background-color: rgb(251, 211, 217);
+  color: black;
+  list-style-type:none;
+  padding: 0px;
+  position: absolute;
+  width: 50vw;
+}
+
+li {
+  text-align: left;
+  font-size: 18px;
+  padding: 5px 13px;
+  border-bottom: #888 1px solid;
 }
