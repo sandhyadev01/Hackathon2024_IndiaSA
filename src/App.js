@@ -1,6 +1,9 @@
 import './App.css';
 
 import React, { useState } from "react";
+import { RiMailLine } from 'react-icons/ri';
+import { FiCopy } from 'react-icons/fi';
+import { FiUser, FiHome } from 'react-icons/fi';
 
 const IReachApp = () => {
   const dummyAccount = {
@@ -13,11 +16,19 @@ const IReachApp = () => {
     score: 0
   };
 
+  const user = {
+    username: 'John Doe',
+    email: 'john@example.com'
+  };
+
   const [accounts, setAccounts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [apiKey, setApiKey] = useState("");
   const [selectedOption, setSelectedOption] = useState("Vector");
   const [showOptions, setShowOptions] = useState(false);
+  const [promptText, setPromptText] = useState("");
+  const [emailText, setEmailText] = useState("");
+
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
@@ -25,6 +36,10 @@ const IReachApp = () => {
 
   const handleKeyChange = (e) => {
     setApiKey(e.target.value);
+  };
+
+  const handlePromptChange = (e) => {
+    setPromptText(e.target.value);
   };
 
   const handleOptionChange = (option) => {
@@ -35,6 +50,10 @@ const IReachApp = () => {
   const handleSubmit = (mode) => {
     setAccounts([]);
     fetchAccounts();
+  };
+
+  const generateEmail = () => {
+    getEmailText();
   };
 
   const fetchAccounts = async () => {
@@ -63,16 +82,40 @@ const IReachApp = () => {
     }
   };
 
+
+  const copyText = () => {
+    navigator.clipboard.writeText(emailText)
+      .then(() => {
+        alert('Copied');
+      })
+      .catch((error) => {
+        console.error('Failed to copy text: ', error);
+      });
+  };
+
+  const  getEmailText = () => {
+    const text = "This is the default email text";
+    setEmailText(text);
+  }
+
   return (
     <div>
-      {accounts.length === 0 && <img className='bg-image' src={"logo_large.png"} />}
-      <div className='powered'>
-        <div className='flexDiv'></div>
-        <img height={24} src="/mongo.png"></img>
-        <a className='powered-text' href="https://www.mongodb.com/products/platform/atlas-vector-search"><em>Powered by MongoDB Atlas Vector Search</em></a>
-        <div className='flexDiv'></div>
+    <header  className='header'>
+         <div style={{ marginLeft: '10px' }}>
+        <FiHome size="24px" color='black'/>
       </div>
+      <div>
+        <FiUser size="24px" color='black' />
+        </div>
+        <div>
+        <p style={{ margin: '0', fontWeight: 'bold', color:'black' }}>{user.username}</p>
+        <p style={{ margin: '0', fontSize: '14px', color:'black' }}>{user.email}</p>
+        </div>
+    </header>
+<div>
+    {accounts.length === 0 && <img className='bg-image' src={"logo_large.png"} />}
       <h1 className='subject'>iReach</h1>
+
       <form onSubmit={handleSubmit}>
         <div className='flexDiv'/>
         <input
@@ -106,6 +149,41 @@ const IReachApp = () => {
             }} />
           </div>
         ))}
+      </div>
+      <div>
+      <form onSubmit={generateEmail}>
+        <div className='flexDiv'/>
+        <input
+          type="text"
+          autoFocus
+          value={promptText}
+          onChange={handlePromptChange}
+          placeholder="Enter email generation prompt here..."
+        />
+        <button className="submit-button" disabled={promptText.trim() === ''} onClick={()=>generateEmail()}>
+          Generate Email <RiMailLine/>
+        </button>
+        <div className='flexDiv'/>
+      </form>
+      
+      <div style={{ position: 'relative', width: '600px', margin: '20px auto' }}>
+      <div style={{ border: '1px solid #ccc', padding: '10px', maxWidth: '600px', margin: '20px auto', height: '300px' }}>
+      <p>{emailText}</p>
+     
+      <button className='copyText'
+        onClick={copyText}   
+      >
+       Copy Email <FiCopy style={{color:'white', size: '1.5em'}} /> 
+      </button>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div className='powered'>
+        <div className='flexDiv'></div>
+        <img height={24} src="/mongo.png"></img>
+        <a className='powered-text' href="https://www.mongodb.com/products/platform/atlas-vector-search"><em>Powered by MongoDB Atlas Vector Search</em></a>
+        <div className='flexDiv'></div>
       </div>
     </div>
   );

@@ -34,6 +34,18 @@ input[type="text"] {
   margin: 0px 10px;
 }
 
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 a {
   font-size: 14px;
   color: #00ED64;
@@ -112,13 +124,16 @@ img {
 }
 
 .subject {
+ 
   font-size: 36px;
+  margin-top: 50px;
+
 }
 
 .powered {
   margin-left: 30px;
   display: flex;
-  margin-top: 20px;
+  
 }
 
 .powered-text {
@@ -165,6 +180,19 @@ button {
   font-family: monospace;
   color: #222;
   cursor: pointer;
+}
+
+.copyText {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
 .chart {
