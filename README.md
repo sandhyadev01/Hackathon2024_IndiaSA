@@ -90,7 +90,7 @@ _Nitin Mukheja_, _Rashi Yadav_, _Sandhya Dev_
 **Architecture**
 _Siddharth Gupta_, _Vinod Krishnan_, _Vaibhav Mehra_
 
-**Charts & Visualisations**
+**Charts & Visualisations & Timeseries**
 _Aditya Kishore_, _Nitin Mukheja_
 
 
