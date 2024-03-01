@@ -1,6 +1,6 @@
-# iReach - Leads? In it to win it!
+# mReach - Leads? In it to win it!
 
-Try out the app here: [iReach](https://ireach-dodfh.mongodbstitch.com/)
+Try out the app here: [mReach](https://iReach-dodfh.mongodbstitch.com/)
 \
 \
 Okay! Ritchie is giving a hint!\
@@ -8,24 +8,26 @@ Okay! Ritchie is giving a hint!\
 
 
 ## Team Details
+Project: mReach
 Team Name: India SA Team\
-Members: 10
+Team Number: 8
 - Ajay Raghav
 - Nitin Mukheja
-- Rajat Bhasin
 - Vinod Krishnan
 - Rashi Yadav
 - Siddharth Gupta
-- Vinay Agarwal
-- Himanshumali
+- Vaibhav Mehra
 - Sandhya Dev
 - Aditya Kishore
-
+Leaders:
+- Rajat Bhasin
+- Vinay Agarwal
+- Himanshumali
 
 Demo Video: [Link Here!]
 
 
-## Business Problem Today
+## Business Justification
 Sales and marketing professionals often struggle to craft personalized emails that effectively engage potential leads, resulting in lower conversion rates and wasted efforts.
 A lot of events, mass mails, cold calls ... and then some more!\
 A lot of work goes here and a small % gets converted to decent amount of leads which are then sent to SDRs.\
@@ -38,17 +40,22 @@ Issue with this:
 - Poor Data Segmentation and hence, Limited Audience Targeting
 - Ineffective Communication
 
+What we're focusing on: (MDB Differentiators)
+- Developer Productivity (DDP)
+- Breezy Search Experience & Personalisation (Atlas Search & Atlas Vector Search...Duh!)
+- Scalability
+- Accelerate Time to Value
 
 
-## What does iReach do?
+## What does mReach do? / Overview
 TLDR: Better Lead Conversions!
 
 
-Introducing iReach, the avant-garde marketing automation platform that revolutionizes how businesses engage with prospects. By leveraging the latest in AI-driven personalization, including cutting-edge embedding models and vector search technologies, iReach delivers unparalleled context and relevance in every email. This sophisticated approach ensures that each message is not only personalized but also deeply resonant with the recipient's current needs and interests, significantly boosting engagement and conversion rates. iReach goes further by incorporating relevant proof points into communications, enhancing client interactions by vividly demonstrating the value of your product. With seamless integration, comprehensive analytics for ongoing refinement, and a commitment to genuine connection, iReach transforms cold outreach into a dynamic, personalized conversation.
+Introducing mReach, the avant-garde marketing automation platform that revolutionizes how businesses engage with prospects. By leveraging the latest in AI-driven personalization, including cutting-edge embedding models and vector search technologies, mReach delivers unparalleled context and relevance in every email. This sophisticated approach ensures that each message is not only personalized but also deeply resonant with the recipient's current needs and interests, significantly boosting engagement and conversion rates. mReach goes further by incorporating relevant proof points into communications, enhancing client interactions by vividly demonstrating the value of your product. With seamless integration, comprehensive analytics for ongoing refinement, and a commitment to genuine connection, mReach transforms cold outreach into a dynamic, personalized conversation.
 
-_Welcome to iReach, where every email is an opportunity to connect, engage, and grow with purpose._
+_Welcome to mReach, where every email is an opportunity to connect, engage, and grow with purpose._
 
-## iReach Tech Stack: 
+## mReach Tech Stack: 
 - OpenAI (text-embedding-ada-002, gpt-3.5-turbo-16k)
 - Atlas Search
 - Atlas Vector Search
@@ -58,7 +65,33 @@ _Welcome to iReach, where every email is an opportunity to connect, engage, and 
 - MERN
 
 ## Architecture:
+
+### High Level Design/Arch
 ![HighLevelArchitecture](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/388be2249d3f65ddc3d6374315304dd68d075207/ArchitectureDiag.png)
+
+
+### Low Level Design/Arch
+![LowLevelArchitecture]()
+
+
+## Roles & Responsibilities:
+**Frontend Development**
+_Ajay Raghav_, _Rashi Yadav_,
+  
+**Backend Development**
+_Vinod Krishnan_, _Siddharth Gupta_, _Ajay Raghav_
+
+**Data Generation**
+_Vaibhav Mehra_, _Sandhya Dev_, _Aditya Kishore_
+
+**ReadMe.md**
+_Nitin Mukheja_, _Rashi Yadav_, _Sandhya Dev_
+
+**Architecture**
+_Siddharth Gupta_, _Vinod Krishnan_, _Vaibhav Mehra_
+
+**Charts & Visualisations**
+_Aditya Kishore_, _Nitin Mukheja_
 
 
 ## What's the cake? 
@@ -72,7 +105,7 @@ That's not all!
 
 The logged in User will be able to see really cool dashboards that gives an overview of deals segregated by their stages, the metrics for # of e-mails sent vs # of e-mail responses.  
 <br /><br />
-iReach uses cool Search features like Fuzzy Search & Autocomplete Search:
+mReach uses cool Search features like Fuzzy Search & Autocomplete Search:
 ![Fuzzy](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/aee92aeb20d62599693e6f7d9027fdb32974ad91/FuzzySearch_Autocomplete.png)
 
 <br /><br />
@@ -83,7 +116,7 @@ The mail content can be curated to be more deal and business-centric.
 
 <br /><br />
 
-Similary, a Solutions Architect can use iReach too for generating a technical e-mail content:
+Similary, a Solutions Architect can use mReach too for generating a technical e-mail content:
 ![SAMailGen](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/aee92aeb20d62599693e6f7d9027fdb32974ad91/SA_TechnicalMailGen.png)
 
 <br /><br />
