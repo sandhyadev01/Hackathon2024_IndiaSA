@@ -71,32 +71,31 @@ This will lead to better conversion rates since the customer now has access to a
 
 That's not all!
 
-The logged in User will be able to see really cool dashboards that gives an overview of deals segregated by their stages, the metrics for # of e-mails sent vs # of e-mail responses.
-
+The logged in User will be able to see really cool dashboards that gives an overview of deals segregated by their stages, the metrics for # of e-mails sent vs # of e-mail responses.  
+<br /><br />
 iReach uses cool Search features like Fuzzy Search & Autocomplete Search:
 ![Fuzzy](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/aee92aeb20d62599693e6f7d9027fdb32974ad91/FuzzySearch_Autocomplete.png)
 
-
-Next, a Sales Exec searches for a use-case and generates e-mail for one of the customers. The mail content can be curated to be more deal and business-centric.
+<br /><br />
+Next, a Sales Exec searches for a use-case and generates e-mail for one of the customers. 
+The mail content can be curated to be more deal and business-centric.
 ### _Cherry on the cake: Links to MongoDB Proof Points!_
 ![SalesExec](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/aee92aeb20d62599693e6f7d9027fdb32974ad91/Retail_SalesExec_MailGen.png)
 
+<br /><br />
 
 Similary, a Solutions Architect can use iReach too for generating a technical e-mail content:
 ![SAMailGen](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/aee92aeb20d62599693e6f7d9027fdb32974ad91/SA_TechnicalMailGen.png)
 
-
+<br /><br />
 Up Next: the user will be able to see Dashboards and Charts metrics for their deals in their specific stages, # of mails sent vs responded, outreach reports, etc:
 ![ChartsDashboard](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/aee92aeb20d62599693e6f7d9027fdb32974ad91/ChartsDashboard.png)
 
+<br /><br />
+Psst... Number of e-mails sent and e-mails responded is a chart built on Time-Series Collection.\
+**_So, I'm basically looking at Leads Conversion Rate powered by Time-Series Collections 🤍_**
 
-Psst... Number of e-mails sent and e-mails responded is a chart built on Time-Series Collection.
-So, I'm basically looking at Leads Conversion Rate powered by Time-Series Collections 🤍
 
-- [Triggers function](/Triggers/functions/Atlas_Triggers_openAI_scheduled_1689945708.js)
-- [Vector Search function](/Triggers/functions/vector.js)
 
-## Deploying Changes
-`sh deploy.sh`
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+That's all Folks!\
+Fin!
