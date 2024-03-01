@@ -30,7 +30,8 @@ const IReachApp = () => {
 
   const [accounts, setAccounts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [promptText, setPromptText] = useState("");
+  const [showLoader, setShowLoader] = useState(false);
+  const [promptText, setPromptText] = useState("I am a Sales Executive, I have been chasing this account. Please generate an email for educating the customer on relevant features for their use case.");
   const [emailText, setEmailText] = useState("");
   const [selectedAccount, setSelectedAccount] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -79,16 +80,21 @@ const IReachApp = () => {
   };
 
   async function searchAccounts(mode, searchQuery) {
-
     try {
+      if (mode !== "searchAutocomplete") {
+        setShowLoader(true);
+      }
+
       const response = await fetch(
         `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/${mode}?s=${encodeURIComponent(searchQuery)}`
       );
 
+      setShowLoader(false);
+
       const similarAccounts = (await response.json()).results;
 
       if (Array.isArray(similarAccounts)) {
-        if (similarAccounts.length > 0) {
+        if (similarAccounts.length > 0 || mode === "searchAutocomplete") {
           return ({ results: similarAccounts, success: true });
         }
         else {
@@ -108,9 +114,13 @@ const IReachApp = () => {
 
   async function fetchGeneratedEmail(promptText) {
     try {
+      setShowLoader(true);
+
       const response = await fetch(
         `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/generateEmail?accountId=${selectedAccount}&prompt=${promptText}`
       );
+
+      setShowLoader(false);
 
       const emailText = (await response.json()).results;
 
@@ -199,7 +209,7 @@ const IReachApp = () => {
               <h2 className='accountName'>{account.AccountName}</h2>
               <h4 className='industry'>{account.Industry}</h4>
               {account.AnnualRunRate > 0 && <h5><em>Estimated Annual Run Rate: ${account.AnnualRunRate}</em></h5>}
-              <h5>Contact: {`${account.ContactName} (${account.role})`}</h5>
+              {account.ContactName && <h5>Contact: {`${account.ContactName} (${account.role})`}</h5>}
               <p className='usecaseDesc'>{account.UseCaseDescription}</p>
             </div>
           ))}
@@ -232,8 +242,14 @@ const IReachApp = () => {
         </div>
         )}
 
+        <div className='iframeParent'>
+          <div className='flexDiv' />
+          <iframe className='iframeCharts' src="https://charts.mongodb.com/charts-india-hack-omwcc/embed/dashboards?id=cc99c69b-ce83-49cb-ab9e-11ae23160615&theme=dark&showTitleAndDesc=true&autoRefresh=true&maxDataAge=3600&showTitleAndDesc=false&scalingWidth=fixed&scalingHeight=fixed" />
+          <div className='flexDiv' />
+        </div>
+
         <header className='header'>
-          <div style={{ marginLeft: 20, color: 'black', fontSize: 18 }}>
+          <div style={{ marginLeft: 20, color: 'black', fontSize: 22, fontWeight: 'bold' }}>
             iReach
           </div>
           <div className='flexDiv' />
@@ -246,6 +262,9 @@ const IReachApp = () => {
           </div>
         </header>
 
+        <div className='loader' style={showLoader ? { display: 'block' } : { display: 'none' }}>
+          <img src="https://media.tenor.com/t5DMW5PI8mgAAAAi/loading-green-loading.gif" height="100px" width="100px" />
+        </div>
 
         <div className='powered'>
           <div className='flexDiv'></div>
