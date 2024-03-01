@@ -1,6 +1,6 @@
 # iReach - Leads? In it to win it!
 
-Try out the app here: [TO BE UPDATED](https://ireach-dodfh.mongodbstitch.com/)
+Try out the app here: [https://ireach-dodfh.mongodbstitch.com/](https://ireach-dodfh.mongodbstitch.com/)
 \
 \
 Okay! Ritchie is giving a hint!\
