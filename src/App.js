@@ -55,7 +55,9 @@ const IReachApp = () => {
     fetchAccounts(mode);
   };
 
-  const generateEmail = () => {
+  const generateEmail = (e) => {
+    e.preventDefault();
+    setEmailText("");
     getEmailText();
   };
 
@@ -89,7 +91,7 @@ const IReachApp = () => {
   const copyText = () => {
     navigator.clipboard.writeText(emailText)
       .then(() => {
-        alert('Copied');
+        alert('Copied: ' + emailText);
       })
       .catch((error) => {
         console.error('Failed to copy text: ', error);
@@ -98,7 +100,7 @@ const IReachApp = () => {
 
   const  getEmailText = () => {
     const text = "This is the default email text";
-    setEmailText(text);
+    setEmailText(promptText);
   }
 
   return (
@@ -146,7 +148,7 @@ const IReachApp = () => {
         ))}
       </div>
       <div>
-      <form onSubmit={generateEmail}>
+      <form >
         <div className='flexDiv'/>
         <input
           type="text"
@@ -155,7 +157,7 @@ const IReachApp = () => {
           onChange={handlePromptChange}
           placeholder="Enter email generation prompt here..."
         />
-        <button className="submit-button" disabled={promptText.trim() === ''} onClick={()=>generateEmail()}>
+        <button className="submit-button" disabled={promptText.trim() === ''} onClick={(e)=>generateEmail(e)}>
           Generate Email <RiMailLine/>
         </button>
         <div className='flexDiv'/>
