@@ -115,7 +115,7 @@ exports = async function ({ query, headers, body }, response) {
     //console.log(qv_features)
     //return { ppresult: llmproofpointsResult, fresult:llmfeatureResult};
     //return {"pleasework" : newresponse.body.Data.choices[0].message.content }
-    return { "asa": EJSON.parse(newresponse.body.text()) }
+    return { results: EJSON.parse(newresponse.body.text()).choices[0].message.content }
 
   } catch (err) {
     console.log("Error occurred while executing findOne:", err.message);

@@ -75,7 +75,6 @@ const IReachApp = () => {
 
   const generateEmail = (e) => {
     e.preventDefault();
-    setEmailText('DummyData');
     getEmailText(promptText);
   };
 
@@ -111,7 +110,7 @@ const IReachApp = () => {
 
     try {
       const response = await fetch(
-        `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/`
+        `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/generateEmail?accountId=${selectedAccount.AccountId}&prompt=${promptText}`
       );
 
       const emailText = (await response.json()).results;
@@ -161,8 +160,6 @@ const IReachApp = () => {
       const text = "Try again with a different search query";
       setEmailText(text);
     }
-
-
   }
 
   return (
