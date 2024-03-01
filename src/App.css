@@ -34,6 +34,18 @@ input[type="text"] {
   margin: 0px 10px;
 }
 
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 a {
   font-size: 14px;
   color: #00ED64;
@@ -104,13 +116,16 @@ img {
 }
 
 .subject {
+ 
   font-size: 36px;
+  margin-top: 50px;
+
 }
 
 .powered {
   margin-left: 30px;
   display: flex;
-  margin-top: 20px;
+  
 }
 
 .powered-text {
@@ -158,6 +173,19 @@ button {
   font-family: monospace;
   color: #222;
   cursor: pointer;
+}
+
+.copy-text {
+    
+    top: 5px;
+    right: 5px;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
 .chart {
@@ -223,4 +251,50 @@ li {
   padding: 5px 13px;
   border-bottom: #888 1px solid;
   cursor: pointer;
+}
+
+.generate-email {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px;
+
+}
+
+.text-area-email {
+  width: 400px;
+  height: 300px; 
+  border: 1px solid black;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.generate-email-button {
+  width: 100px; 
+  height: 50px; 
+  font-size: 16px;
+}
+
+.email-text {
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
+  margin-left: 10px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-right: 60px;
+}
+
+.prompt-text-area {
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: none;
 }
