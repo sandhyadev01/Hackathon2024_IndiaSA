@@ -30,13 +30,13 @@ const IReachApp = () => {
 
   const [accounts, setAccounts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedOption, setSelectedOption] = useState("Vector");
   const [showOptions, setShowOptions] = useState(false);
   const [promptText, setPromptText] = useState("");
   const [emailText, setEmailText] = useState("");
   const [selectedAccount, setSelectedAccount] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [autocompleteTimeout, setAutocompleteTimeout] = useState(0);
+  const [isPromtTextBarVisible, setIsPromptTextBarVisible] = useState(false);
 
 
   const handleChange = (e) => {
@@ -58,13 +58,10 @@ const IReachApp = () => {
     setPromptText(e.target.value);
   };
 
-  const handleOptionChange = (option) => {
-    setSelectedOption(option);
-    setShowOptions(false);
-  };
-
   const handleSelect = (accountId) => {
     setSelectedAccount(accountId);
+    setIsPromptTextBarVisible(true);
+
   }
 
   const handleSubmit = (e, mode) => {
@@ -78,8 +75,8 @@ const IReachApp = () => {
 
   const generateEmail = (e) => {
     e.preventDefault();
-    setEmailText("");
-    getEmailText();
+    setEmailText('DummyData');
+    getEmailText(promptText);
   };
 
   async function searchAccounts(mode, searchQuery) {
@@ -109,6 +106,28 @@ const IReachApp = () => {
     }
   }
 
+
+  async function fetchGeneratedEmail(promptText) {
+
+    try {
+      const response = await fetch(
+        `https://ap-south-1.aws.data.mongodb-api.com/app/ireach-dodfh/endpoint/`
+      );
+
+      const emailText = (await response.json()).results;
+
+      if (emailText) {
+          return ({ results: emailText, success: true });
+      }
+      else {
+        emailText = 'Try again with a different search query';
+        return ({ success: false });
+      }
+    } catch (error) {
+      console.error("Error fetching accounts:", error);
+    }
+  }
+
   const fetchAccounts = async (mode) => {
     const { results, success } = await searchAccounts(mode, searchQuery);
 
@@ -126,16 +145,24 @@ const IReachApp = () => {
   const copyText = () => {
     navigator.clipboard.writeText(emailText)
       .then(() => {
-        alert('Copied: ' + emailText);
+        console.log("Text copied!");
       })
       .catch((error) => {
         console.error('Failed to copy text: ', error);
       });
   };
 
-  const  getEmailText = () => {
-    const text = "This is the default email text";
-    setEmailText(promptText);
+  const  getEmailText = async(promptText) => {
+    const { result, success } = await fetchGeneratedEmail(promptText);
+    if (success) {
+      setEmailText(result);
+    }
+    else {
+      const text = "Try again with a different search query";
+      setEmailText(text);
+    }
+    
+   
   }
 
   return (
@@ -144,13 +171,13 @@ const IReachApp = () => {
          <div style={{ marginLeft: '10px' }}>
         <FiHome size="24px" color='black'/>
       </div>
-      <div>
-        <FiUser size="24px" color='black' />
-        </div>
-        <div>
-        <p style={{ margin: '0', fontWeight: 'bold', color:'black' }}>{user.username}</p>
+      <div style={{ display: 'flex', alignItems: 'center', color: 'black' }}>
+      <FiUser size="30px" color='black' marginRight= '15px'/>
+       <div>
+        <p style={{ marginRight: '20px', fontWeight: 'bold', color:'black', marginLeft:'10px' }}>{user.username}</p>
         <p style={{ margin: '0', fontSize: '14px', color:'black' }}>{user.email}</p>
-        </div>
+      </div>
+      </div>
     </header>
 
     {accounts.length === 0 && <img className='bg-image' src={"logo_large.png"} />}
@@ -192,34 +219,31 @@ const IReachApp = () => {
           </div>
         ))}
       </div>
-      <div>
-      <form >
-        <div className='flexDiv'/>
-        <input
+      {isPromtTextBarVisible && ( <div className='generate-email'>
+        <div className='text-area-email'>
+        <textarea className='prompt-text-area'
           type="text"
           autoFocus
           value={promptText}
           onChange={handlePromptChange}
           placeholder="Enter email generation prompt here..."
         />
-        <button className="submit-button" disabled={promptText.trim() === ''} onClick={(e)=>generateEmail(e)}>
+        </div>
+        <button className='generate-email-button' disabled={promptText.trim() === ''} onClick={(e)=>generateEmail(e)}>
           Generate Email <RiMailLine/>
         </button>
-        <div className='flexDiv'/>
-      </form>
       
-      <div style={{ position: 'relative', width: '600px', margin: '20px auto' }}>
-      <div style={{ border: '1px solid #ccc', padding: '10px', maxWidth: '600px', margin: '20px auto', height: '300px' }}>
-      <p>{emailText}</p>
+      <div className='email-text'>
+      {emailText}
      
-      <button className='copyText'
+      <button className='copy-text'
         onClick={copyText}   
       >
        Copy Email <FiCopy style={{color:'white', size: '1.5em'}} /> 
       </button>
       </div>
-    </div>
-    </div>
+      </div>
+    )}
     <div className='powered'>
         <div className='flexDiv'></div>
         <img height={24} src="/mongo.png"></img>
