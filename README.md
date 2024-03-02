@@ -72,7 +72,7 @@ _**Welcome to mReach, where every email is an opportunity to connect, engage, an
 
 
 ### Low Level Design/Arch
-![LowLevelArchitecture](https://github.com/sandhyadev01/Hackathon2024_IndiaSA/blob/7eed5d420689396637a4b17ee2eda4853c52fa6e/LowLevelArch.png)
+![LowLevelArchitecture](LowLevelArch.png)
 
 
 ## Roles & Responsibilities:
